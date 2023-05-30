@@ -1,0 +1,3 @@
+[submodule "EMBLProject"]
+	path = EMBLProject
+	url = git@github.com:petni19/EMBLProject.git
