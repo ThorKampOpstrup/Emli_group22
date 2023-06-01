@@ -1,4 +1,7 @@
 #!/bin/bash
+DIR_BIN=`dirname $(readlink -f $0)`
+cd $DIR_BIN
+
 LOG_FILE="pids.log"
 
 echo "Killing all logged processes"

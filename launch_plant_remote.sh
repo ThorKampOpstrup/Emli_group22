@@ -1,4 +1,6 @@
 #!/bin/bash
+DIR_BIN=`dirname $(readlink -f $0)`
+cd $DIR_BIN
 
 id=$1
 port=$2

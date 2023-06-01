@@ -58,7 +58,9 @@ do
         header="Time,Plant alarm,Water alarm,Moisture level,Ambient light"
         echo "adding header to $l_f"
         echo "$header" > $l_f
-        exit 1
+        echo $DIR_BIN$l_f
+        ln $DIR_BIN/$l_f /var/www/html/all$id.csv
+        # chown 777 /var/www/html/all$id.csv
     fi
 
     #get length of all files

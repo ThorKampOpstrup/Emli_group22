@@ -1,5 +1,8 @@
 #!/bin/bash
 
+DIR_BIN=$(dirname $(readlink -f $0))
+cd $DIR_BIN
+
 id=$1
 port=$2
 m_th=$3
@@ -12,9 +15,17 @@ pa_t=plant_alarm_topic$id
 wa_t=water_alarm_topic$id
 m_t=moisture_topic$id
 
-p_f=log/pump$id.csv
+p_f=../log/pump$id.csv
 
-touch $p_f
+# touch $p_f
+if [ ! -f "$p_f" ]; then
+    echo "File $p_f does not exist."
+    touch $p_f
+    echo "File touched"
+    echo $DIR_BIN/$p_f
+    ln $DIR_BIN/$p_f /var/www/html/pump$id.csv
+    # chown 777 /var/www/html/all$id.csv
+fi
 
 moisture_threshhold=m_th
 
@@ -67,7 +78,7 @@ do
             duration=$message
         fi
         #if time difference is greater than 10 seconds
-        if [ "$time_diff" -gt 10 ]; then
+        if [ "$time_diff" -gt 3600 ]; then
             if [ "$topic" == "$m_t" ]; then
                 moisture_level=$message
                 if (( "$message" <= "$moisture_threshhold" )); then

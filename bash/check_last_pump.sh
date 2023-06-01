@@ -1,5 +1,5 @@
 #!/bin/bash
-time_th=10
+time_th=43200  #12h in sec
 
 broker_address=localhost
 broker_port=1883
