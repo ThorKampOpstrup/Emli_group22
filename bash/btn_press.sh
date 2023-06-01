@@ -1,8 +1,11 @@
 #!/bin/bash
+
+id=$1
+
 broker_address=localhost
 broker_port=1883
 
-pr_t=pump_request_topic
+pr_t=pump_request_topic$id
 
 IP_ADDRESS="10.42.0.222"
 BUTTON="/button/a/count"

@@ -1,13 +1,15 @@
-#! /bin/bash
 #!/bin/bash
+
+id=$1
+m_th=$2
 
 broker_address=localhost
 broker_port=1883
 
-pa_t=plant_alarm_topic
-wa_t=water_alarm_topic
-m_t=moisture_topic
-a_t=ambient_light_topic
+pa_t=plant_alarm_topic$id
+wa_t=water_alarm_topic$id
+m_t=moisture_topic$id
+a_t=ambient_light_topic$id
 
 # URL's
 IP_ADDRESS="10.42.0.222"
@@ -23,7 +25,7 @@ RED_OFF="/led/red/off"
 PLANT_ALARM_ACTIVE=1
 WATER_ALARM_ACTIVE=1
 MOISTURE_VALUE=0
-MOISTURE_THRESH=10
+MOISTURE_THRESH=$m_th
 
 # Function to handle SIGINT signal
 function handle_sigint() {
@@ -65,12 +67,6 @@ water_alarm_callback() {
   fi
 }
 
-moisture_callback() {
-  local msg="$1"
-  # echo "Recieved moisture: $msg"
-  MOISTURE_VALUE=$msg
-}
-
 while true
 do  
     echo "HELO"
@@ -78,23 +74,23 @@ do
     do
         topic=$(echo $message | cut -d' ' -f1)
         message=$(echo $message | cut -d' ' -f2)
-        # echo "topic: $topic: message: $message"
+        echo "topic: $topic: message: $message"
         if [ "$topic" == "$pa_t" ]; then
             plant_alarm_callback "$message"
         elif [ "$topic" == "$wa_t" ]; then
             water_alarm_callback "$message"
         elif [ "$topic" == "$m_t" ]; then
-            moisture_callback "$message"
+            MOISTURE_VALUE=$message
         fi
         green_status="on"
-        if [[ $PLANT_ALARM_ACTIVE -eq 1 || $WATER_ALARM_ACTIVE -eq 1 ]]; then
+        if (( $PLANT_ALARM_ACTIVE == 1 || $WATER_ALARM_ACTIVE == 1 )); then
             curl -s "http://${IP_ADDRESS}${RED_ON}"
             curl -s "http://${IP_ADDRESS}${GREEN_OFF}"
             green_status="off"
         else
             curl -s "http://${IP_ADDRESS}${RED_OFF}"
         fi
-        if [[ $MOISTURE_VALUE -lt $MOISTURE_THRESH ]]; then
+        if (( $MOISTURE_VALUE <= $MOISTURE_THRESH )); then
             curl -s "http://${IP_ADDRESS}${YELLOW_ON}"
             green_status="off"
         else

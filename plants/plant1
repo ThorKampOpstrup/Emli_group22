@@ -1,0 +1,6 @@
+#id
+1
+#port
+/dev/ttyACM0
+#moisture threshold
+20

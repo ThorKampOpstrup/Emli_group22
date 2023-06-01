@@ -1,16 +1,22 @@
 #!/bin/bash
+
+id=$1
+port=$2
+m_th=$3
+
 broker_address=localhost
 broker_port=1883
 
-pr_t=pump_request_topic
-pa_t=plant_alarm_topic
-wa_t=water_alarm_topic
-m_t=moisture_topic
+pr_t=pump_request_topic$id
+pa_t=plant_alarm_topic$id
+wa_t=water_alarm_topic$id
+m_t=moisture_topic$id
 
-p_f=log/pump.csv
+p_f=log/pump$id.csv
+
 touch $p_f
 
-moisture_threshhold=20
+moisture_threshhold=m_th
 
 moisture_level=0
 water_alarm=1
@@ -19,12 +25,13 @@ plant_alarm=1
 
 pump(){
     local duration=$1
+    local port=$2
 
     # Loop for the specified duration
     echo "Pump on"
     for (( i=0; i<$duration; i++ )); do
         # Send data to Raspberry Pi Pico via serial device file
-        echo -ne 'p' > /dev/ttyACM0
+        echo -ne 'p' > $port
         # echo "p send"
         # Sleep for 1 second before sending the next data
         sleep 1
@@ -60,10 +67,10 @@ do
             duration=$message
         fi
         #if time difference is greater than 10 seconds
-        if [ "$time_diff" -gt 20 ]; then
+        if [ "$time_diff" -gt 10 ]; then
             if [ "$topic" == "$m_t" ]; then
                 moisture_level=$message
-                if [ "$message" -lt "$moisture_threshhold" ]; then
+                if (( "$message" <= "$moisture_threshhold" )); then
                     echo "Plant is dry"
                     pump_plz="yes"
                     duration=3
@@ -93,7 +100,7 @@ do
                 break
             fi
             echo "$(date +%s),1" >> $p_f
-            pump $duration
+            pump $duration $port
             echo "$(date +%s),0" >> $p_f
         fi
     done

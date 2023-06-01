@@ -18,7 +18,7 @@ A list with describtion the main folders of the project, each folder has its own
 | `bash`  |  The folder includes the bash scripts for all the message topics.      |
 | `health_monitor`  | The folder includes the bash scripts for monitoring the health status of our Raspberry Pi     |
 | `html` | The folder includes the php, html, and .csv files in the project for our webserver.  |
-| `test` | The folder includes results mentioned in the report, as either .png or .log|
+| `test` | The folder includes results mentioned in the report, as either .png, .log, or .csv|
 
 
 ## Usages <a name=usage></a>

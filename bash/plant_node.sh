@@ -1,12 +1,16 @@
 #!/bin/bash
 
+id=$1
+port=$2
+
+
 broker_address=localhost
 broker_port=1883
 
-pa_t=plant_alarm_topic
-wa_t=water_alarm_topic
-m_t=moisture_topic
-a_t=ambient_light_topic
+pa_t=plant_alarm_topic$id
+wa_t=water_alarm_topic$id
+m_t=moisture_topic$id
+a_t=ambient_light_topic$id
 
 
 # Function to handle SIGINT signal
@@ -20,13 +24,13 @@ function handle_sigint() {
 # Register the SIGINT signal handler
 trap handle_sigint SIGINT
 
-stty -F /dev/ttyACM0 115200 raw -echo -echoe -echok
+stty -F $port 115200 raw -echo -echoe -echok
 
 # Loop to continuously read data from UART
 while true
 do
     # Read data from the serial port
-    INPUT=$(head -n 1 /dev/ttyACM0)
+    INPUT=$(head -n 1 $port)
     
     PLANT_ALARM=$(echo "$INPUT" | cut -d ',' -f1)
     mosquitto_pub -h $broker_address -p $broker_port -t $pa_t -m "$PLANT_ALARM"

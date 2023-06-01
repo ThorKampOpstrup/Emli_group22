@@ -1,16 +1,18 @@
 #!/bin/bash
 
+id=$1
+
 broker_address=localhost
 broker_port=1883
 
-pa_t=plant_alarm_topic
-wa_t=water_alarm_topic
-m_t=moisture_topic
-a_t=ambient_light_topic
+pa_t=plant_alarm_topic$1
+wa_t=water_alarm_topic$1
+m_t=moisture_topic$1
+a_t=ambient_light_topic$1
 
 
 # Function to handle SIGINT signal
-function handle_sigint() {
+function exit_func() {
     echo "Stopping the program..."
     
     # Exit the script
@@ -18,15 +20,13 @@ function handle_sigint() {
 }
 
 # Register the SIGINT signal handler
-trap handle_sigint SIGINT
+trap exit_func EXIT
 
-pa_f=log/$(echo "$pa_t" | awk -F "_" '{print $1}').csv
-wa_f=log/$(echo "$wa_t" | awk -F "_" '{print $1}').csv
-m_f="${m_t%_topic}"
-m_f="log/${m_f#*_}.csv"
-a_f="${a_t%_topic}"
-a_f="log/${a_f#*_}.csv"
-t_f="log/time.csv"
+pa_f=log/$pa_t.csv
+wa_f=log/$wa_t.csv
+m_f=log/$m_t.csv
+a_f=log/$a_t.csv
+t_f="log/time$id.csv"
 
 #open csv file
 
