@@ -1,0 +1,258 @@
+2023-06-01 09:50:00,945 fail2ban.server         [11329]: INFO    --------------------------------------------------
+2023-06-01 09:50:00,945 fail2ban.server         [11329]: INFO    Starting Fail2ban v0.11.2
+2023-06-01 09:50:00,947 fail2ban.observer       [11329]: INFO    Observer start...
+2023-06-01 09:50:00,969 fail2ban.database       [11329]: INFO    Connected to fail2ban persistent database '/var/lib/fail2ban/fail2ban.sqlite3'
+2023-06-01 09:50:00,979 fail2ban.database       [11329]: WARNING New database created. Version '4'
+2023-06-01 09:50:00,981 fail2ban.jail           [11329]: INFO    Creating new jail 'sshd'
+2023-06-01 09:50:01,017 fail2ban.jail           [11329]: INFO    Jail 'sshd' uses pyinotify {}
+2023-06-01 09:50:01,027 fail2ban.jail           [11329]: INFO    Initiated 'pyinotify' backend
+2023-06-01 09:50:01,031 fail2ban.filter         [11329]: INFO      maxLines: 1
+2023-06-01 09:50:01,088 fail2ban.filter         [11329]: INFO      maxRetry: 3
+2023-06-01 09:50:01,089 fail2ban.filter         [11329]: INFO      findtime: 60
+2023-06-01 09:50:01,089 fail2ban.actions        [11329]: INFO      banTime: 60
+2023-06-01 09:50:01,090 fail2ban.filter         [11329]: INFO      encoding: UTF-8
+2023-06-01 09:50:01,095 fail2ban.filter         [11329]: INFO    Added logfile: '/var/log/auth.log' (pos = 0, hash = 421984055043f8612c0d43980851cdd4cfb4897a)
+2023-06-01 09:50:01,104 fail2ban.jail           [11329]: INFO    Jail 'sshd' started
+2023-06-01 09:51:08,830 fail2ban.filter         [11329]: INFO    [sshd] Found 10.42.0.66 - 2023-06-01 09:51:08
+2023-06-01 09:51:08,831 fail2ban.filter         [11329]: INFO    [sshd] Found 10.42.0.66 - 2023-06-01 09:51:08
+2023-06-01 09:51:08,884 fail2ban.filter         [11329]: INFO    [sshd] Found 10.42.0.66 - 2023-06-01 09:51:08
+2023-06-01 09:51:08,919 fail2ban.filter         [11329]: INFO    [sshd] Found 10.42.0.66 - 2023-06-01 09:51:08
+2023-06-01 09:51:08,997 fail2ban.filter         [11329]: INFO    [sshd] Found 10.42.0.66 - 2023-06-01 09:51:08
+2023-06-01 09:51:09,001 fail2ban.filter         [11329]: INFO    [sshd] Found 10.42.0.66 - 2023-06-01 09:51:08
+2023-06-01 09:51:09,012 fail2ban.filter         [11329]: INFO    [sshd] Found 10.42.0.66 - 2023-06-01 09:51:09
+2023-06-01 09:51:09,036 fail2ban.filter         [11329]: INFO    [sshd] Found 10.42.0.66 - 2023-06-01 09:51:09
+2023-06-01 09:51:09,187 fail2ban.actions        [11329]: NOTICE  [sshd] Ban 10.42.0.66
+2023-06-01 09:52:08,087 fail2ban.actions        [11329]: NOTICE  [sshd] Unban 10.42.0.66
+2023-06-01 09:52:14,566 fail2ban.filter         [11329]: INFO    [sshd] Found 10.42.0.66 - 2023-06-01 09:52:14
+2023-06-01 09:52:14,574 fail2ban.filter         [11329]: INFO    [sshd] Found 10.42.0.66 - 2023-06-01 09:52:14
+2023-06-01 09:52:14,603 fail2ban.filter         [11329]: INFO    [sshd] Found 10.42.0.66 - 2023-06-01 09:52:14
+2023-06-01 09:52:14,638 fail2ban.filter         [11329]: INFO    [sshd] Found 10.42.0.66 - 2023-06-01 09:52:14
+2023-06-01 09:52:14,729 fail2ban.actions        [11329]: NOTICE  [sshd] Ban 10.42.0.66
+2023-06-01 09:53:14,051 fail2ban.actions        [11329]: NOTICE  [sshd] Unban 10.42.0.66
+2023-06-01 10:10:09,918 fail2ban.filter         [11329]: INFO    [sshd] Found 10.42.0.241 - 2023-06-01 10:10:09
+2023-06-01 10:10:28,011 fail2ban.filter         [11329]: INFO    [sshd] Found 10.42.0.241 - 2023-06-01 10:10:28
+2023-06-01 10:26:34,313 fail2ban.filter         [11329]: INFO    [sshd] Found 10.42.0.66 - 2023-06-01 10:26:33
+2023-06-01 11:01:18,548 fail2ban.server         [11329]: INFO    Shutdown in progress...
+2023-06-01 11:01:18,549 fail2ban.observer       [11329]: INFO    Observer stop ... try to end queue 5 seconds
+2023-06-01 11:01:18,570 fail2ban.observer       [11329]: INFO    Observer stopped, 0 events remaining.
+2023-06-01 11:01:18,611 fail2ban.server         [11329]: INFO    Stopping all jails
+2023-06-01 11:01:18,612 fail2ban.filter         [11329]: INFO    Removed logfile: '/var/log/auth.log'
+2023-06-01 11:01:19,401 fail2ban.actions        [11329]: NOTICE  [sshd] Flush ticket(s) with iptables-multiport
+2023-06-01 11:01:19,591 fail2ban.jail           [11329]: INFO    Jail 'sshd' stopped
+2023-06-01 11:01:19,593 fail2ban.database       [11329]: INFO    Connection to database closed.
+2023-06-01 11:01:19,594 fail2ban.server         [11329]: INFO    Exiting Fail2ban
+2023-06-01 11:01:26,583 fail2ban.server         [844]: INFO    --------------------------------------------------
+2023-06-01 11:01:26,586 fail2ban.server         [844]: INFO    Starting Fail2ban v0.11.2
+2023-06-01 11:01:26,589 fail2ban.observer       [844]: INFO    Observer start...
+2023-06-01 11:01:26,613 fail2ban.database       [844]: INFO    Connected to fail2ban persistent database '/var/lib/fail2ban/fail2ban.sqlite3'
+2023-06-01 11:01:26,623 fail2ban.jail           [844]: INFO    Creating new jail 'sshd'
+2023-06-01 11:01:26,708 fail2ban.jail           [844]: INFO    Jail 'sshd' uses pyinotify {}
+2023-06-01 11:01:26,719 fail2ban.jail           [844]: INFO    Initiated 'pyinotify' backend
+2023-06-01 11:01:26,725 fail2ban.filter         [844]: INFO      maxLines: 1
+2023-06-01 11:01:26,787 fail2ban.filter         [844]: INFO      maxRetry: 3
+2023-06-01 11:01:26,788 fail2ban.filter         [844]: INFO      findtime: 120
+2023-06-01 11:01:26,789 fail2ban.actions        [844]: INFO      banTime: 120
+2023-06-01 11:01:26,789 fail2ban.filter         [844]: INFO      encoding: UTF-8
+2023-06-01 11:01:26,793 fail2ban.filter         [844]: INFO    Added logfile: '/var/log/auth.log' (pos = 552400, hash = 421984055043f8612c0d43980851cdd4cfb4897a)
+2023-06-01 11:01:26,807 fail2ban.jail           [844]: INFO    Jail 'sshd' started
+2023-06-01 11:05:31,760 fail2ban.filter         [844]: INFO    [sshd] Found 10.42.0.203 - 2023-06-01 11:05:31
+2023-06-01 11:05:37,815 fail2ban.filter         [844]: INFO    [sshd] Found 10.42.0.203 - 2023-06-01 11:05:37
+2023-06-01 11:05:45,831 fail2ban.filter         [844]: INFO    [sshd] Found 10.42.0.203 - 2023-06-01 11:05:43
+2023-06-01 11:05:46,429 fail2ban.actions        [844]: NOTICE  [sshd] Ban 10.42.0.203
+2023-06-01 11:07:01,655 fail2ban.filter         [844]: INFO    [sshd] Found 10.42.0.241 - 2023-06-01 11:07:01
+2023-06-01 11:07:07,290 fail2ban.filter         [844]: INFO    [sshd] Found 10.42.0.241 - 2023-06-01 11:07:07
+2023-06-01 11:07:12,537 fail2ban.filter         [844]: INFO    [sshd] Found 10.42.0.241 - 2023-06-01 11:07:12
+2023-06-01 11:07:12,755 fail2ban.actions        [844]: NOTICE  [sshd] Ban 10.42.0.241
+2023-06-01 11:07:43,037 fail2ban.actions        [844]: NOTICE  [sshd] Unban 10.42.0.203
+2023-06-01 11:09:12,431 fail2ban.actions        [844]: NOTICE  [sshd] Unban 10.42.0.241
+2023-06-01 11:36:36,654 fail2ban.filter         [844]: INFO    [sshd] Found 10.42.0.203 - 2023-06-01 11:36:36
+2023-06-01 11:37:01,822 fail2ban.filter         [844]: INFO    [sshd] Found 10.42.0.203 - 2023-06-01 11:36:44
+2023-06-01 11:54:14,472 fail2ban.server         [844]: INFO    Shutdown in progress...
+2023-06-01 11:54:14,472 fail2ban.observer       [844]: INFO    Observer stop ... try to end queue 5 seconds
+2023-06-01 11:54:14,493 fail2ban.observer       [844]: INFO    Observer stopped, 0 events remaining.
+2023-06-01 11:54:14,534 fail2ban.server         [844]: INFO    Stopping all jails
+2023-06-01 11:54:14,535 fail2ban.filter         [844]: INFO    Removed logfile: '/var/log/auth.log'
+2023-06-01 11:54:14,654 fail2ban.actions        [844]: NOTICE  [sshd] Flush ticket(s) with iptables-multiport
+2023-06-01 11:54:14,751 fail2ban.jail           [844]: INFO    Jail 'sshd' stopped
+2023-06-01 11:54:14,754 fail2ban.database       [844]: INFO    Connection to database closed.
+2023-06-01 11:54:14,754 fail2ban.server         [844]: INFO    Exiting Fail2ban
+2023-06-01 11:54:22,511 fail2ban.server         [855]: INFO    --------------------------------------------------
+2023-06-01 11:54:22,512 fail2ban.server         [855]: INFO    Starting Fail2ban v0.11.2
+2023-06-01 11:54:22,516 fail2ban.observer       [855]: INFO    Observer start...
+2023-06-01 11:54:22,533 fail2ban.database       [855]: INFO    Connected to fail2ban persistent database '/var/lib/fail2ban/fail2ban.sqlite3'
+2023-06-01 11:54:22,541 fail2ban.jail           [855]: INFO    Creating new jail 'sshd'
+2023-06-01 11:54:22,638 fail2ban.jail           [855]: INFO    Jail 'sshd' uses pyinotify {}
+2023-06-01 11:54:22,647 fail2ban.jail           [855]: INFO    Initiated 'pyinotify' backend
+2023-06-01 11:54:22,652 fail2ban.filter         [855]: INFO      maxLines: 1
+2023-06-01 11:54:22,711 fail2ban.filter         [855]: INFO      maxRetry: 3
+2023-06-01 11:54:22,712 fail2ban.filter         [855]: INFO      findtime: 120
+2023-06-01 11:54:22,713 fail2ban.actions        [855]: INFO      banTime: 120
+2023-06-01 11:54:22,713 fail2ban.filter         [855]: INFO      encoding: UTF-8
+2023-06-01 11:54:22,715 fail2ban.filter         [855]: INFO    Added logfile: '/var/log/auth.log' (pos = 581579, hash = 421984055043f8612c0d43980851cdd4cfb4897a)
+2023-06-01 11:54:22,730 fail2ban.jail           [855]: INFO    Jail 'sshd' started
+2023-06-01 11:56:45,330 fail2ban.server         [855]: INFO    Shutdown in progress...
+2023-06-01 11:56:45,330 fail2ban.observer       [855]: INFO    Observer stop ... try to end queue 5 seconds
+2023-06-01 11:56:45,352 fail2ban.observer       [855]: INFO    Observer stopped, 0 events remaining.
+2023-06-01 11:56:45,392 fail2ban.server         [855]: INFO    Stopping all jails
+2023-06-01 11:56:45,393 fail2ban.filter         [855]: INFO    Removed logfile: '/var/log/auth.log'
+2023-06-01 11:56:45,603 fail2ban.actions        [855]: NOTICE  [sshd] Flush ticket(s) with iptables-multiport
+2023-06-01 11:56:45,604 fail2ban.jail           [855]: INFO    Jail 'sshd' stopped
+2023-06-01 11:56:45,605 fail2ban.database       [855]: INFO    Connection to database closed.
+2023-06-01 11:56:45,606 fail2ban.server         [855]: INFO    Exiting Fail2ban
+2023-06-01 11:56:52,146 fail2ban.server         [844]: INFO    --------------------------------------------------
+2023-06-01 11:56:52,149 fail2ban.server         [844]: INFO    Starting Fail2ban v0.11.2
+2023-06-01 11:56:52,151 fail2ban.observer       [844]: INFO    Observer start...
+2023-06-01 11:56:52,170 fail2ban.database       [844]: INFO    Connected to fail2ban persistent database '/var/lib/fail2ban/fail2ban.sqlite3'
+2023-06-01 11:56:52,180 fail2ban.jail           [844]: INFO    Creating new jail 'sshd'
+2023-06-01 11:56:52,285 fail2ban.jail           [844]: INFO    Jail 'sshd' uses pyinotify {}
+2023-06-01 11:56:52,296 fail2ban.jail           [844]: INFO    Initiated 'pyinotify' backend
+2023-06-01 11:56:52,302 fail2ban.filter         [844]: INFO      maxLines: 1
+2023-06-01 11:56:52,363 fail2ban.filter         [844]: INFO      maxRetry: 3
+2023-06-01 11:56:52,364 fail2ban.filter         [844]: INFO      findtime: 120
+2023-06-01 11:56:52,364 fail2ban.actions        [844]: INFO      banTime: 120
+2023-06-01 11:56:52,364 fail2ban.filter         [844]: INFO      encoding: UTF-8
+2023-06-01 11:56:52,366 fail2ban.filter         [844]: INFO    Added logfile: '/var/log/auth.log' (pos = 585980, hash = 421984055043f8612c0d43980851cdd4cfb4897a)
+2023-06-01 11:56:52,384 fail2ban.jail           [844]: INFO    Jail 'sshd' started
+2023-06-01 11:57:54,390 fail2ban.filter         [844]: INFO    [sshd] Found 10.42.0.203 - 2023-06-01 11:57:54
+2023-06-01 11:58:03,584 fail2ban.filter         [844]: INFO    [sshd] Found 10.42.0.203 - 2023-06-01 11:58:01
+2023-06-01 11:58:12,700 fail2ban.filter         [844]: INFO    [sshd] Found 10.42.0.203 - 2023-06-01 11:58:12
+2023-06-01 11:58:13,186 fail2ban.actions        [844]: NOTICE  [sshd] Ban 10.42.0.203
+2023-06-01 12:00:12,155 fail2ban.actions        [844]: NOTICE  [sshd] Unban 10.42.0.203
+2023-06-01 12:01:06,164 fail2ban.filter         [844]: INFO    [sshd] Found 10.42.0.66 - 2023-06-01 12:01:05
+2023-06-01 12:01:46,211 fail2ban.filter         [844]: INFO    [sshd] Found 10.42.0.66 - 2023-06-01 12:01:46
+2023-06-01 12:01:57,000 fail2ban.filter         [844]: INFO    [sshd] Found 10.42.0.66 - 2023-06-01 12:01:56
+2023-06-01 12:01:57,538 fail2ban.actions        [844]: NOTICE  [sshd] Ban 10.42.0.66
+2023-06-01 12:03:56,343 fail2ban.actions        [844]: NOTICE  [sshd] Unban 10.42.0.66
+2023-06-01 12:10:16,309 fail2ban.server         [844]: INFO    Shutdown in progress...
+2023-06-01 12:10:16,311 fail2ban.observer       [844]: INFO    Observer stop ... try to end queue 5 seconds
+2023-06-01 12:10:16,333 fail2ban.observer       [844]: INFO    Observer stopped, 0 events remaining.
+2023-06-01 12:10:16,374 fail2ban.server         [844]: INFO    Stopping all jails
+2023-06-01 12:10:16,375 fail2ban.filter         [844]: INFO    Removed logfile: '/var/log/auth.log'
+2023-06-01 12:10:16,895 fail2ban.actions        [844]: NOTICE  [sshd] Flush ticket(s) with iptables-multiport
+2023-06-01 12:10:16,966 fail2ban.jail           [844]: INFO    Jail 'sshd' stopped
+2023-06-01 12:10:16,968 fail2ban.database       [844]: INFO    Connection to database closed.
+2023-06-01 12:10:16,969 fail2ban.server         [844]: INFO    Exiting Fail2ban
+2023-06-01 12:10:23,448 fail2ban.server         [843]: INFO    --------------------------------------------------
+2023-06-01 12:10:23,451 fail2ban.server         [843]: INFO    Starting Fail2ban v0.11.2
+2023-06-01 12:10:23,453 fail2ban.observer       [843]: INFO    Observer start...
+2023-06-01 12:10:23,492 fail2ban.database       [843]: INFO    Connected to fail2ban persistent database '/var/lib/fail2ban/fail2ban.sqlite3'
+2023-06-01 12:10:23,498 fail2ban.jail           [843]: INFO    Creating new jail 'sshd'
+2023-06-01 12:10:23,561 fail2ban.jail           [843]: INFO    Jail 'sshd' uses pyinotify {}
+2023-06-01 12:10:23,571 fail2ban.jail           [843]: INFO    Initiated 'pyinotify' backend
+2023-06-01 12:10:23,576 fail2ban.filter         [843]: INFO      maxLines: 1
+2023-06-01 12:10:23,635 fail2ban.filter         [843]: INFO      maxRetry: 3
+2023-06-01 12:10:23,636 fail2ban.filter         [843]: INFO      findtime: 120
+2023-06-01 12:10:23,637 fail2ban.actions        [843]: INFO      banTime: 120
+2023-06-01 12:10:23,637 fail2ban.filter         [843]: INFO      encoding: UTF-8
+2023-06-01 12:10:23,642 fail2ban.filter         [843]: INFO    Added logfile: '/var/log/auth.log' (pos = 596358, hash = 421984055043f8612c0d43980851cdd4cfb4897a)
+2023-06-01 12:10:23,661 fail2ban.jail           [843]: INFO    Jail 'sshd' started
+2023-06-01 12:16:53,116 fail2ban.filter         [843]: INFO    [sshd] Found 10.42.0.66 - 2023-06-01 12:16:52
+2023-06-01 12:17:01,131 fail2ban.filter         [843]: INFO    [sshd] Found 10.42.0.66 - 2023-06-01 12:16:59
+2023-06-01 12:17:01,606 fail2ban.filter         [843]: INFO    [sshd] Found 10.0.0.1 - 2023-06-01 12:17:01
+2023-06-01 12:17:07,518 fail2ban.filter         [843]: INFO    [sshd] Found 10.42.0.66 - 2023-06-01 12:17:06
+2023-06-01 12:17:07,817 fail2ban.actions        [843]: NOTICE  [sshd] Ban 10.42.0.66
+2023-06-01 12:17:28,702 fail2ban.filter         [843]: INFO    [sshd] Found 10.0.0.1 - 2023-06-01 12:17:28
+2023-06-01 12:17:30,759 fail2ban.filter         [843]: INFO    [sshd] Found 10.42.0.203 - 2023-06-01 12:17:30
+2023-06-01 12:18:00,368 fail2ban.filter         [843]: INFO    [sshd] Found 10.0.0.1 - 2023-06-01 12:18:00
+2023-06-01 12:18:00,709 fail2ban.actions        [843]: NOTICE  [sshd] Ban 10.0.0.1
+2023-06-01 12:19:06,042 fail2ban.actions        [843]: NOTICE  [sshd] Unban 10.42.0.66
+2023-06-01 12:19:11,525 fail2ban.filter         [843]: INFO    [sshd] Found 10.42.0.66 - 2023-06-01 12:19:11
+2023-06-01 12:19:18,177 fail2ban.filter         [843]: INFO    [sshd] Found 10.42.0.66 - 2023-06-01 12:19:17
+2023-06-01 12:19:30,776 fail2ban.filter         [843]: INFO    [sshd] Found 10.42.0.66 - 2023-06-01 12:19:30
+2023-06-01 12:19:31,335 fail2ban.actions        [843]: NOTICE  [sshd] Ban 10.42.0.66
+2023-06-01 12:19:59,120 fail2ban.filter         [843]: INFO    [sshd] Found 10.42.0.203 - 2023-06-01 12:19:58
+2023-06-01 12:20:00,014 fail2ban.actions        [843]: NOTICE  [sshd] Unban 10.0.0.1
+2023-06-01 12:20:04,779 fail2ban.filter         [843]: INFO    [sshd] Found 10.42.0.203 - 2023-06-01 12:20:04
+2023-06-01 12:20:15,696 fail2ban.filter         [843]: INFO    [sshd] Found 10.42.0.203 - 2023-06-01 12:20:15
+2023-06-01 12:20:16,078 fail2ban.actions        [843]: NOTICE  [sshd] Ban 10.42.0.203
+2023-06-01 12:21:30,219 fail2ban.actions        [843]: NOTICE  [sshd] Unban 10.42.0.66
+2023-06-01 12:22:15,553 fail2ban.actions        [843]: NOTICE  [sshd] Unban 10.42.0.203
+2023-06-01 12:26:43,971 fail2ban.filter         [843]: INFO    [sshd] Found 10.42.0.66 - 2023-06-01 12:26:43
+2023-06-01 12:27:00,390 fail2ban.filter         [843]: INFO    [sshd] Found 10.42.0.66 - 2023-06-01 12:27:00
+2023-06-01 12:27:00,560 fail2ban.filter         [843]: INFO    [sshd] Found 10.42.0.66 - 2023-06-01 12:27:00
+2023-06-01 12:27:00,590 fail2ban.actions        [843]: NOTICE  [sshd] Ban 10.42.0.66
+2023-06-01 12:29:00,786 fail2ban.actions        [843]: NOTICE  [sshd] Unban 10.42.0.66
+2023-06-01 14:16:15,906 fail2ban.server         [843]: INFO    Shutdown in progress...
+2023-06-01 14:16:15,908 fail2ban.observer       [843]: INFO    Observer stop ... try to end queue 5 seconds
+2023-06-01 14:16:15,928 fail2ban.observer       [843]: INFO    Observer stopped, 0 events remaining.
+2023-06-01 14:16:15,970 fail2ban.server         [843]: INFO    Stopping all jails
+2023-06-01 14:16:15,971 fail2ban.filter         [843]: INFO    Removed logfile: '/var/log/auth.log'
+2023-06-01 14:16:16,217 fail2ban.actions        [843]: NOTICE  [sshd] Flush ticket(s) with iptables-multiport
+2023-06-01 14:16:16,303 fail2ban.jail           [843]: INFO    Jail 'sshd' stopped
+2023-06-01 14:16:16,306 fail2ban.database       [843]: INFO    Connection to database closed.
+2023-06-01 14:16:16,307 fail2ban.server         [843]: INFO    Exiting Fail2ban
+2023-06-01 14:16:22,693 fail2ban.server         [854]: INFO    --------------------------------------------------
+2023-06-01 14:16:22,698 fail2ban.server         [854]: INFO    Starting Fail2ban v0.11.2
+2023-06-01 14:16:22,700 fail2ban.observer       [854]: INFO    Observer start...
+2023-06-01 14:16:22,722 fail2ban.database       [854]: INFO    Connected to fail2ban persistent database '/var/lib/fail2ban/fail2ban.sqlite3'
+2023-06-01 14:16:22,728 fail2ban.jail           [854]: INFO    Creating new jail 'sshd'
+2023-06-01 14:16:22,825 fail2ban.jail           [854]: INFO    Jail 'sshd' uses pyinotify {}
+2023-06-01 14:16:22,836 fail2ban.jail           [854]: INFO    Initiated 'pyinotify' backend
+2023-06-01 14:16:22,842 fail2ban.filter         [854]: INFO      maxLines: 1
+2023-06-01 14:16:22,910 fail2ban.filter         [854]: INFO      maxRetry: 3
+2023-06-01 14:16:22,911 fail2ban.filter         [854]: INFO      findtime: 120
+2023-06-01 14:16:22,911 fail2ban.actions        [854]: INFO      banTime: 120
+2023-06-01 14:16:22,912 fail2ban.filter         [854]: INFO      encoding: UTF-8
+2023-06-01 14:16:22,915 fail2ban.filter         [854]: INFO    Added logfile: '/var/log/auth.log' (pos = 646228, hash = 421984055043f8612c0d43980851cdd4cfb4897a)
+2023-06-01 14:16:22,926 fail2ban.jail           [854]: INFO    Jail 'sshd' started
+2023-06-01 14:32:08,883 fail2ban.server         [854]: INFO    Shutdown in progress...
+2023-06-01 14:32:08,884 fail2ban.observer       [854]: INFO    Observer stop ... try to end queue 5 seconds
+2023-06-01 14:32:08,905 fail2ban.observer       [854]: INFO    Observer stopped, 0 events remaining.
+2023-06-01 14:32:08,946 fail2ban.server         [854]: INFO    Stopping all jails
+2023-06-01 14:32:08,947 fail2ban.filter         [854]: INFO    Removed logfile: '/var/log/auth.log'
+2023-06-01 14:32:09,179 fail2ban.actions        [854]: NOTICE  [sshd] Flush ticket(s) with iptables-multiport
+2023-06-01 14:32:09,180 fail2ban.jail           [854]: INFO    Jail 'sshd' stopped
+2023-06-01 14:32:09,182 fail2ban.database       [854]: INFO    Connection to database closed.
+2023-06-01 14:32:09,183 fail2ban.server         [854]: INFO    Exiting Fail2ban
+2023-06-01 14:32:15,637 fail2ban.server         [854]: INFO    --------------------------------------------------
+2023-06-01 14:32:15,645 fail2ban.server         [854]: INFO    Starting Fail2ban v0.11.2
+2023-06-01 14:32:15,646 fail2ban.observer       [854]: INFO    Observer start...
+2023-06-01 14:32:15,669 fail2ban.database       [854]: INFO    Connected to fail2ban persistent database '/var/lib/fail2ban/fail2ban.sqlite3'
+2023-06-01 14:32:15,679 fail2ban.jail           [854]: INFO    Creating new jail 'sshd'
+2023-06-01 14:32:15,772 fail2ban.jail           [854]: INFO    Jail 'sshd' uses pyinotify {}
+2023-06-01 14:32:15,781 fail2ban.jail           [854]: INFO    Initiated 'pyinotify' backend
+2023-06-01 14:32:15,786 fail2ban.filter         [854]: INFO      maxLines: 1
+2023-06-01 14:32:15,844 fail2ban.filter         [854]: INFO      maxRetry: 3
+2023-06-01 14:32:15,845 fail2ban.filter         [854]: INFO      findtime: 120
+2023-06-01 14:32:15,846 fail2ban.actions        [854]: INFO      banTime: 120
+2023-06-01 14:32:15,846 fail2ban.filter         [854]: INFO      encoding: UTF-8
+2023-06-01 14:32:15,853 fail2ban.filter         [854]: INFO    Added logfile: '/var/log/auth.log' (pos = 655101, hash = 421984055043f8612c0d43980851cdd4cfb4897a)
+2023-06-01 14:32:15,871 fail2ban.jail           [854]: INFO    Jail 'sshd' started
+2023-06-01 14:49:35,608 fail2ban.server         [854]: INFO    Shutdown in progress...
+2023-06-01 14:49:35,608 fail2ban.observer       [854]: INFO    Observer stop ... try to end queue 5 seconds
+2023-06-01 14:49:35,629 fail2ban.observer       [854]: INFO    Observer stopped, 0 events remaining.
+2023-06-01 14:49:35,672 fail2ban.server         [854]: INFO    Stopping all jails
+2023-06-01 14:49:35,673 fail2ban.filter         [854]: INFO    Removed logfile: '/var/log/auth.log'
+2023-06-01 14:49:36,042 fail2ban.actions        [854]: NOTICE  [sshd] Flush ticket(s) with iptables-multiport
+2023-06-01 14:49:36,044 fail2ban.jail           [854]: INFO    Jail 'sshd' stopped
+2023-06-01 14:49:36,045 fail2ban.database       [854]: INFO    Connection to database closed.
+2023-06-01 14:49:36,046 fail2ban.server         [854]: INFO    Exiting Fail2ban
+2023-06-01 14:49:42,508 fail2ban.server         [834]: INFO    --------------------------------------------------
+2023-06-01 14:49:42,520 fail2ban.server         [834]: INFO    Starting Fail2ban v0.11.2
+2023-06-01 14:49:42,522 fail2ban.observer       [834]: INFO    Observer start...
+2023-06-01 14:49:42,582 fail2ban.database       [834]: INFO    Connected to fail2ban persistent database '/var/lib/fail2ban/fail2ban.sqlite3'
+2023-06-01 14:49:42,590 fail2ban.jail           [834]: INFO    Creating new jail 'sshd'
+2023-06-01 14:49:42,653 fail2ban.jail           [834]: INFO    Jail 'sshd' uses pyinotify {}
+2023-06-01 14:49:42,664 fail2ban.jail           [834]: INFO    Initiated 'pyinotify' backend
+2023-06-01 14:49:42,669 fail2ban.filter         [834]: INFO      maxLines: 1
+2023-06-01 14:49:42,732 fail2ban.filter         [834]: INFO      maxRetry: 3
+2023-06-01 14:49:42,732 fail2ban.filter         [834]: INFO      findtime: 120
+2023-06-01 14:49:42,733 fail2ban.actions        [834]: INFO      banTime: 120
+2023-06-01 14:49:42,733 fail2ban.filter         [834]: INFO      encoding: UTF-8
+2023-06-01 14:49:42,735 fail2ban.filter         [834]: INFO    Added logfile: '/var/log/auth.log' (pos = 662266, hash = 421984055043f8612c0d43980851cdd4cfb4897a)
+2023-06-01 14:49:42,751 fail2ban.jail           [834]: INFO    Jail 'sshd' started
+2023-06-01 14:52:11,775 fail2ban.server         [859]: INFO    --------------------------------------------------
+2023-06-01 14:52:11,780 fail2ban.server         [859]: INFO    Starting Fail2ban v0.11.2
+2023-06-01 14:52:11,782 fail2ban.observer       [859]: INFO    Observer start...
+2023-06-01 14:52:11,801 fail2ban.database       [859]: INFO    Connected to fail2ban persistent database '/var/lib/fail2ban/fail2ban.sqlite3'
+2023-06-01 14:52:11,809 fail2ban.jail           [859]: INFO    Creating new jail 'sshd'
+2023-06-01 14:52:11,875 fail2ban.jail           [859]: INFO    Jail 'sshd' uses pyinotify {}
+2023-06-01 14:52:11,884 fail2ban.jail           [859]: INFO    Initiated 'pyinotify' backend
+2023-06-01 14:52:11,889 fail2ban.filter         [859]: INFO      maxLines: 1
+2023-06-01 14:52:11,946 fail2ban.filter         [859]: INFO      maxRetry: 3
+2023-06-01 14:52:11,947 fail2ban.filter         [859]: INFO      findtime: 120
+2023-06-01 14:52:11,947 fail2ban.actions        [859]: INFO      banTime: 120
+2023-06-01 14:52:11,948 fail2ban.filter         [859]: INFO      encoding: UTF-8
+2023-06-01 14:52:11,951 fail2ban.filter         [859]: INFO    Added logfile: '/var/log/auth.log' (pos = 664462, hash = 421984055043f8612c0d43980851cdd4cfb4897a)
+2023-06-01 14:52:11,995 fail2ban.jail           [859]: INFO    Jail 'sshd' started
+2023-06-01 15:30:43,074 fail2ban.filter         [859]: INFO    [sshd] Found 10.42.0.66 - 2023-06-01 15:30:43
