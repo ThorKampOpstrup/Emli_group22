@@ -47,7 +47,7 @@ plant_alarm_callback() {
   numeric_value=$(echo "$numeric_value" | tr -dc '[:digit:]')
   if [[ -n "$numeric_value" ]] && ((numeric_value == 1 )) ; then
     PLANT_ALARM_ACTIVE=1
-    echo "Plant alarm active"
+    # echo "Plant alarm active"
   else
     PLANT_ALARM_ACTIVE=0
   fi
@@ -62,7 +62,7 @@ water_alarm_callback() {
   if [[ -n "$numeric_value" ]] && (( numeric_value == 0 )); then 
     WATER_ALARM_ACTIVE=0
   else
-    echo "Water alarm active"
+    # echo "Water alarm active"
     WATER_ALARM_ACTIVE=1
   fi
 }
@@ -74,7 +74,7 @@ do
     do
         topic=$(echo $message | cut -d' ' -f1)
         message=$(echo $message | cut -d' ' -f2)
-        echo "topic: $topic: message: $message"
+        # echo "topic: $topic: message: $message"
         if [ "$topic" == "$pa_t" ]; then
             plant_alarm_callback "$message"
         elif [ "$topic" == "$wa_t" ]; then
