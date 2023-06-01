@@ -1,6 +1,6 @@
 <?php
 // Read the CSV file
-$csvFile = 'all1.csv';
+$csvFile = 'pump1.csv';
 $fileHandle = fopen($csvFile, 'r');
 
 // Check if the file could be opened
@@ -18,29 +18,20 @@ while (($line = fgetcsv($fileHandle)) !== false) {
 fclose($fileHandle);
 
 // Extract the last 10 lines
-$last10Lines = array_slice($lines, -400);
+$last10Lines = array_slice($lines, -1440);
 
 // Initialize arrays to store the data
-$plantAlarmData = array();
-$waterAlarmData = array();
 $moistureData = array();
-$lightData = array();
 $xLabels = array();
 
 // Process the last 10 lines of the CSV file
 foreach ($last10Lines as $line) {
     // Extract the relevant values from each line
-    $plantAlarm = intval($line[1]);
-    $waterAlarm = intval($line[2]);
-    $moisture = intval($line[3]);
-    $light = intval($line[4]);
+    $moisture = intval($line[1]);
     $xLabel = substr($line[0], -8); // Extract the last 8 characters as the X label
 
     // Add the data to the arrays
-    $plantAlarmData[] = $plantAlarm;
-    $waterAlarmData[] = $waterAlarm;
     $moistureData[] = $moisture;
-    $lightData[] = $light;
     $xLabels[] = $xLabel;
 }
 ?>
@@ -57,11 +48,7 @@ foreach ($last10Lines as $line) {
     <script>
         // Convert PHP arrays to JavaScript arrays
         var moistureData = <?php echo json_encode($moistureData); ?>;
-        var lightData = <?php echo json_encode($lightData); ?>;
         var xLabels = <?php echo json_encode($xLabels); ?>;
-	var waterAlarmData = <?php echo json_encode($waterAlarmData); ?>;
-	var plantAlarmData = <?php echo json_encode($plantAlarmData); ?>;
-
 
         // Create the chart using Chart.js
         var ctx = document.getElementById('chart').getContext('2d');
@@ -71,31 +58,10 @@ foreach ($last10Lines as $line) {
                 labels: xLabels,
                 datasets: [
                     {
-                        label: 'Moisture Level',
+                        label: 'Pump [high/low]',
                         data: moistureData,
                         backgroundColor: 'rgba(0, 123, 255, 0.5)',
                         borderColor: 'rgba(0, 123, 255, 1)',
-                        borderWidth: 1
-                    },
-                    {
-                        label: 'Ambient Light',
-                        data: lightData,
-                        backgroundColor: 'rgba(255, 193, 7, 0.5)',
-                        borderColor: 'rgba(255, 193, 7, 1)',
-                        borderWidth: 1
-                    },
-                    {
-                        label: 'Plant Alarm',
-                        data: plantAlarmData,
-                        backgroundColor: 'rgba(255, 0, 0, 0.5)',
-                        borderColor: 'rgba(255, 0, 0, 1)',
-                        borderWidth: 1
-                    },
-                    {
-                        label: 'Water Alarm',
-                        data: waterAlarmData,
-                        backgroundColor: 'rgba(0, 193, 7, 0.5)',
-                        borderColor: 'rgba(0, 193, 7, 1)',
                         borderWidth: 1
                     }
                 ]
@@ -121,7 +87,7 @@ foreach ($last10Lines as $line) {
             }
         });
     </script>
-    <a href="all.csv" download="all.csv">Download CSV</a>
+    <a href="pump1.csv" download="pump1.csv">Download CSV</a>
     <button onclick="window.location.href = 'index.html';">Go Back</button>
 </body>
 </html>

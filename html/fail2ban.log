@@ -642,3 +642,4 @@
 2023-06-01 18:38:37,397 fail2ban.filter         [837]: INFO      encoding: UTF-8
 2023-06-01 18:38:37,399 fail2ban.filter         [837]: INFO    Added logfile: '/var/log/auth.log' (pos = 827055, hash = 421984055043f8612c0d43980851cdd4cfb4897a)
 2023-06-01 18:38:37,411 fail2ban.jail           [837]: INFO    Jail 'sshd' started
+2023-06-01 18:56:33,964 fail2ban.filter         [837]: INFO    [sshd] Found 10.42.0.66 - 2023-06-01 18:56:33
