@@ -18,9 +18,11 @@ while (($line = fgetcsv($fileHandle)) !== false) {
 fclose($fileHandle);
 
 // Extract the last 10 lines
-$last10Lines = array_slice($lines, -10);
+$last10Lines = array_slice($lines, -400);
 
 // Initialize arrays to store the data
+$plantAlarmData = array();
+$waterAlarmData = array();
 $moistureData = array();
 $lightData = array();
 $xLabels = array();
@@ -28,22 +30,27 @@ $xLabels = array();
 // Process the last 10 lines of the CSV file
 foreach ($last10Lines as $line) {
     // Extract the relevant values from each line
+    $plantAlarm = intval($line[1]);
+    $waterAlarm = intval($line[2]);
     $moisture = intval($line[3]);
     $light = intval($line[4]);
     $xLabel = substr($line[0], -8); // Extract the last 8 characters as the X label
 
     // Add the data to the arrays
+    $plantAlarmData[] = $plantAlarm;
+    $waterAlarmData[] = $waterAlarm;
     $moistureData[] = $moisture;
     $lightData[] = $light;
     $xLabels[] = $xLabel;
 }
 ?>
 
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>CSV Data Plot</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="chart.js"></script>
 </head>
 <body>
     <canvas id="chart"></canvas>
@@ -52,6 +59,9 @@ foreach ($last10Lines as $line) {
         var moistureData = <?php echo json_encode($moistureData); ?>;
         var lightData = <?php echo json_encode($lightData); ?>;
         var xLabels = <?php echo json_encode($xLabels); ?>;
+	var waterAlarmData = <?php echo json_encode($waterAlarmData); ?>;
+	var plantAlarmData = <?php echo json_encode($plantAlarmData); ?>;
+
 
         // Create the chart using Chart.js
         var ctx = document.getElementById('chart').getContext('2d');
@@ -72,6 +82,20 @@ foreach ($last10Lines as $line) {
                         data: lightData,
                         backgroundColor: 'rgba(255, 193, 7, 0.5)',
                         borderColor: 'rgba(255, 193, 7, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Plant Alarm',
+                        data: plantAlarmData,
+                        backgroundColor: 'rgba(255, 0, 0, 0.5)',
+                        borderColor: 'rgba(255, 0, 0, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Water Alarm',
+                        data: waterAlarmData,
+                        backgroundColor: 'rgba(0, 193, 7, 0.5)',
+                        borderColor: 'rgba(0, 193, 7, 1)',
                         borderWidth: 1
                     }
                 ]
