@@ -33,6 +33,11 @@ do
     # echo "$PLANT_ALARM, published to $pa_t"
 
     WATER_ALARM=$(echo "$INPUT" | cut -d ',' -f2)
+    if [ "$WATER_ALARM" == "1" ]; then
+        WATER_ALARM="0"
+    else
+        WATER_ALARM="1"
+    fi
     mosquitto_pub -h $broker_address -p $broker_port -t $wa_t -m "$WATER_ALARM"
     # echo "$WATER_ALARM, published to $wa_t"
 

@@ -20,8 +20,8 @@ RED_ON="/led/red/on"
 RED_OFF="/led/red/off"
 
 # Global variables
-PLANT_ALARM_ACTIVE=0
-WATER_ALARM_ACTIVE=0
+PLANT_ALARM_ACTIVE=1
+WATER_ALARM_ACTIVE=1
 MOISTURE_VALUE=0
 MOISTURE_THRESH=10
 
@@ -43,7 +43,7 @@ plant_alarm_callback() {
   local msg="$1"
   local numeric_value="${msg#*: }"
   numeric_value=$(echo "$numeric_value" | tr -dc '[:digit:]')
-  if [[ -n "$numeric_value" ]] && ((numeric_value == 0 )) ; then
+  if [[ -n "$numeric_value" ]] && ((numeric_value == 1 )) ; then
     PLANT_ALARM_ACTIVE=1
     echo "Plant alarm active"
   else
