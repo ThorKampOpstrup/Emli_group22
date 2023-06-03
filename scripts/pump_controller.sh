@@ -84,8 +84,8 @@ do
         fi
         
         
-        #if time difference is greater than 10 seconds
-        if [ "$time_diff" -gt 20 ]; then
+        #if time difference is greater than 1h in seconds
+        if [ "$time_diff" -gt 3600 ]; then
         # if [ "$time_diff" -gt 10 ]; then
             if [ "$topic" == "$m_t" ]; then
                 moisture_level=$message
@@ -97,12 +97,9 @@ do
             fi
             if [ "$topic" == "$wa_t" ]; then
                 water_alarm=$message
-                echo "help1"
                 if [ $message == 1 ]; then
                     echo "Water is to low1"
                     pump_plz="no"
-                else 
-                    echo "help2"
                 fi
             fi
             if [ "$topic" == "$pa_t" ]; then

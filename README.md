@@ -74,3 +74,50 @@ Same as above.
 - pump_controller.sh: Subscriber node, that sends signal to the Pico to water the plant, whenever appropriate to the functional requirements.
 - remote_node.sh: Subscriper node led control on ESP8266
 - show_data.sh: Subscriper node for debugging tool to show the data of the different topics.
+
+### Setup to run on boot
+Follow below steps to run the project on boot.
+
+1. Open a terminal and `touch /etc/rc.local`
+2. Open the file with `sudo nano /etc/rc.local`
+
+    *Add the following lines to the file:*
+
+        #!/bin/bash 
+        $PATH_TO/boot.sh
+        exit 0
+
+4. Open file with `sudo nano /etc/systemd/system/rc-local.service`
+
+    *Add the following lines to the file:*
+
+        [Unit]
+        Description=/etc/rc.local Compatibility
+        ConditionPathExists=/etc/rc.local
+
+        [Service]
+        Type=forking
+        ExecStart=/etc/rc.local start
+        TimeoutSec=0 
+        StandardOutput=tty
+        RemainAfterExit=yes 
+        SysVStartPriority=99
+        
+        [Install]
+        WantedBy=multi-user.target
+**Addition:**
+    *One could just add teh content of boot.sh to the rc.local file, but for ease of acces for the user it is placed in boot.sh*
+
+### If old data is shown or downloaded, it is most likely a missing link, perform following step depending on the missing link:
+**cd to root of this git!**
+        
+        ln log/all1.csv html/all1.csv 
+        
+        sudo ln html/* /var/www/html/
+
+        ln log/pump1.csv html/pump1.csv
+        
+        ln html/pump1.csv /var/www/html/pump1.csv
+
+### If the program still does not start;
+Try trouble shooting by starting "./launch_all_plant.sh" and se what information is shown and what is not. Note that it will say Waiting for server, as 2 of the nodes ping the remote, and waits for answers before proceeding. The btn node til print waiting .... as ling as no button press is detected.
