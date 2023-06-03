@@ -79,6 +79,7 @@ do
         fi
         #if time difference is greater than 10 seconds
         if [ "$time_diff" -gt 3600 ]; then
+        # if [ "$time_diff" -gt 10 ]; then
             if [ "$topic" == "$m_t" ]; then
                 moisture_level=$message
                 if (( "$message" <= "$moisture_threshhold" )); then
