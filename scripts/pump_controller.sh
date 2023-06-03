@@ -23,8 +23,8 @@ if [ ! -f "$p_f" ]; then
     touch $p_f
     echo "File touched"
     echo $DIR_BIN/$p_f
-    ln $DIR_BIN/$p_f /var/www/html/pump$id.csv
-    # chown 777 /var/www/html/all$id.csv
+    ln $DIR_BIN/$p_f ../html/pump$id.csv
+    sudo chown 777 ../html/pump$id.csv
 fi
 
 moisture_threshhold=m_th
@@ -57,7 +57,6 @@ do
     do
         topic=$(echo $message | cut -d' ' -f1)
         message=$(echo $message | cut -d' ' -f2)
-
         pump_plz="no"
         touch $p_f
         duration=0
@@ -77,8 +76,16 @@ do
             pump_plz="yes"
             duration=$message
         fi
+        if [ "$topic" == "$wa_t" ]; then
+            water_alarm=$message
+        fi
+        if [ "$topic" == "$pa_t" ]; then
+            plant_alarm=$message
+        fi
+        
+        
         #if time difference is greater than 10 seconds
-        if [ "$time_diff" -gt 3600 ]; then
+        if [ "$time_diff" -gt 20 ]; then
         # if [ "$time_diff" -gt 10 ]; then
             if [ "$topic" == "$m_t" ]; then
                 moisture_level=$message
@@ -90,9 +97,12 @@ do
             fi
             if [ "$topic" == "$wa_t" ]; then
                 water_alarm=$message
-                if [ "$message" == "1" ]; then
-                    echo "Water is to low"
+                echo "help1"
+                if [ $message == 1 ]; then
+                    echo "Water is to low1"
                     pump_plz="no"
+                else 
+                    echo "help2"
                 fi
             fi
             if [ "$topic" == "$pa_t" ]; then
@@ -106,14 +116,14 @@ do
 
         if [ "$pump_plz" == "yes" ]; then
             #check water alarm
-            if [ "$water_alarm" == "1" ]; then
-                echo "Water is to low"
+            if [ $water_alarm == 1 ]; then
+                echo "Water is to low2: $water_alarm"
                 pump_plz="no"
                 break
             fi
-            echo "$(date +%s),1" >> $p_f
+            echo "$(date +%s),1,$(date +%Y_%m_%d_%H_%M) " >> $p_f
             pump $duration $port
-            echo "$(date +%s),0" >> $p_f
+            echo "$(date +%s),0,$(date +%Y_%m_%d_%H_%M)" >> $p_f
         fi
     done
 done

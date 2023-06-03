@@ -10,6 +10,7 @@ wa_t=water_alarm_topic$1
 m_t=moisture_topic$1
 a_t=ambient_light_topic$1
 b_t=btn_topic$1
+pr_t=pump_request_topic$1
 
 
 # Function to handle SIGINT signal
@@ -27,7 +28,7 @@ trap handle_sigint SIGINT
 
 while true
 do  
-    mosquitto_sub -h $broker_address -p $broker_port -t $pa_t -t $wa_t -t $m_t -t $a_t -t $b_t -F "%t %p" | while read -r message
+    mosquitto_sub -h $broker_address -p $broker_port -t $pa_t -t $wa_t -t $m_t -t $a_t -t $b_t -t $pr_t -F "%t %p" | while read -r message
     do
         topic=$(echo $message | cut -d' ' -f1)
         message=$(echo $message | cut -d' ' -f2)

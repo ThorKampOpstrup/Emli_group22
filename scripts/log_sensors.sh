@@ -32,12 +32,12 @@ t_f="log/time$id.csv"
 
 while true
 do  
-    echo "HELO"
+    # echo "HELO"
     mosquitto_sub -h $broker_address -p $broker_port -t $pa_t -t $wa_t -t $m_t -t $a_t -F "%t %p" | while read -r message
     do
         topic=$(echo $message | cut -d' ' -f1)
         message=$(echo $message | cut -d' ' -f2)
-        echo $message
+        # echo $message
         if [ "$topic" == "$pa_t" ]; then
             touch $pa_f
             echo $message >> $pa_f

@@ -9,16 +9,19 @@ if ($fileHandle === false) {
 }
 
 // Read the file and store the lines in an array
+$coun=0;
 $lines = array();
 while (($line = fgetcsv($fileHandle)) !== false) {
     $lines[] = $line;
+    $count+=1;
 }
 
 // Close the file handle
 fclose($fileHandle);
 
+
 // Extract the last 10 lines
-$last10Lines = array_slice($lines, -400);
+$last10Lines = array_slice($lines, -$count);
 
 // Initialize arrays to store the data
 $plantAlarmData = array();
@@ -37,8 +40,8 @@ foreach ($last10Lines as $line) {
     $xLabel = substr($line[0], -8); // Extract the last 8 characters as the X label
 
     // Add the data to the arrays
-    $plantAlarmData[] = $plantAlarm;
-    $waterAlarmData[] = $waterAlarm;
+    $plantAlarmData[] = $plantAlarm*100;
+    $waterAlarmData[] = $waterAlarm*100;
     $moistureData[] = $moisture;
     $lightData[] = $light;
     $xLabels[] = $xLabel;
@@ -121,7 +124,7 @@ foreach ($last10Lines as $line) {
             }
         });
     </script>
-    <a href="all.csv" download="all.csv">Download CSV</a>
+    <a href="all1.csv" download="all1.csv">Download CSV</a>
     <button onclick="window.location.href = 'index.html';">Go Back</button>
 </body>
 </html>

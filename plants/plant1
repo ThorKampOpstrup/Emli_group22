@@ -4,3 +4,5 @@
 /dev/ttyACM0
 #moisture threshold
 60
+#remote ip
+10.42.0.222

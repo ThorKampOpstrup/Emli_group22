@@ -54,13 +54,13 @@ do
     if [ ! -f "$l_f" ]; then
         echo "File $l_f does not exist."
         touch $l_f
-        echo "File touched"
+        # echo "File touched"
         header="Time,Plant alarm,Water alarm,Moisture level,Ambient light"
-        echo "adding header to $l_f"
+        # echo "adding header to $l_f"
         echo "$header" > $l_f
-        echo $DIR_BIN$l_f
-        ln $DIR_BIN/$l_f /var/www/html/all$id.csv
-        # chown 777 /var/www/html/all$id.csv
+        # echo $DIR_BIN$l_f
+        ln $DIR_BIN/$l_f $DIR_BIN/../html/all$id.csv
+        sudo chown 777 $DIR_BIN/../html/all$id.csv
     fi
 
     #get length of all files

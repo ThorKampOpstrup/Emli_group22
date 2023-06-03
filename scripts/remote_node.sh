@@ -2,6 +2,7 @@
 
 id=$1
 m_th=$2
+ip_arg="$3"
 
 broker_address=localhost
 broker_port=1883
@@ -12,7 +13,7 @@ m_t=moisture_topic$id
 a_t=ambient_light_topic$id
 
 # URL's
-IP_ADDRESS="10.42.0.222"
+IP_ADDRESS=$ip_arg
 BUTTON="/button/a/count"
 GREEN_ON="/led/green/on"
 GREEN_OFF="/led/green/off"
@@ -69,9 +70,15 @@ water_alarm_callback() {
 
 while true
 do  
-    echo "HELO"
     mosquitto_sub -h $broker_address -p $broker_port -t $pa_t -t $wa_t -t $m_t -F "%t %p" | while read -r message
     do
+        printf "%s" "waiting for Server ..."
+        while ! timeout 0.2 ping -c 1 -n $ip_arg &> /dev/null
+        do
+          printf "%c" "."
+          continue
+        done
+        printf "\n\r"
         topic=$(echo $message | cut -d' ' -f1)
         message=$(echo $message | cut -d' ' -f2)
         # echo "topic: $topic: message: $message"
@@ -87,17 +94,20 @@ do
             curl -s "http://${IP_ADDRESS}${RED_ON}"
             curl -s "http://${IP_ADDRESS}${GREEN_OFF}"
             green_status="off"
+            echo "plant alarm or water alarm"
         else
             curl -s "http://${IP_ADDRESS}${RED_OFF}"
         fi
         if (( $MOISTURE_VALUE <= $MOISTURE_THRESH )); then
             curl -s "http://${IP_ADDRESS}${YELLOW_ON}"
             green_status="off"
+            echo "moisture to low"
         else
           curl -s "http://${IP_ADDRESS}${YELLOW_OFF}"
         fi
         if [[ $green_status == "on" ]]; then
           curl -s "http://${IP_ADDRESS}${GREEN_ON}"
+          echo "okay"
         else
           curl -s "http://${IP_ADDRESS}${GREEN_OFF}"
         fi

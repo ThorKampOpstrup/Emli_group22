@@ -10,15 +10,17 @@ if ($fileHandle === false) {
 
 // Read the file and store the lines in an array
 $lines = array();
+$count=0;
 while (($line = fgetcsv($fileHandle)) !== false) {
     $lines[] = $line;
+    $count+=1;
 }
 
 // Close the file handle
 fclose($fileHandle);
 
 // Extract the last 10 lines
-$last10Lines = array_slice($lines, -1440);
+$last10Lines = array_slice($lines, -$count);
 
 // Initialize arrays to store the data
 $moistureData = array();

@@ -5,8 +5,9 @@ cd $DIR_BIN
 id=$1
 port=$2
 moisture_thresshold=$3
+remote_ip=$4
 
-path=bash
+path=scripts
 
 # Log file to store child script PIDs
 LOG_FILE="pids.log"
@@ -33,7 +34,7 @@ trap handle_sigint SIGINT
 pid1=$!
 echo "$pid1" >> "$LOG_FILE"
 
-./$path/remote_node.sh $id $moisture_thresshold &
+./$path/remote_node.sh $id $moisture_thresshold $remote_ip&
 pid2=$!
 echo "$pid2" >> "$LOG_FILE"
 
@@ -41,7 +42,7 @@ echo "$pid2" >> "$LOG_FILE"
 pid3=$!
 echo "$pid3" >> "$LOG_FILE"
 
-./$path/btn_press.sh $id &
+./$path/btn_press.sh $id $remote_ip &
 pid4=$!
 echo "$pid4" >> "$LOG_FILE"
 

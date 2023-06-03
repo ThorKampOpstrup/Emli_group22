@@ -32,13 +32,18 @@ do
         then
             moisture_threshold=$(sed -n "$((i+1))"p $file)
         fi
+        if [[ $line == \#remote* ]]
+        then
+            remote_ip=$(sed -n "$((i+1))"p $file)
+        fi
     done
     echo "id: $id"
     echo "port: $port"
     echo "moisture_threshold: $moisture_threshold"
+    echo "remote ip: $remote_ip"
     echo "Launching plant $id"
 
-    ./launch_plant_remote.sh $id $port $moisture_threshold &
+    ./launch_plant_remote.sh $id $port $moisture_threshold $remote_ip &
     pid=$!
     echo "$pid" >> "$LOG_FILE"
 done
