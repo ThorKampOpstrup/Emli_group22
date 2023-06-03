@@ -25,55 +25,80 @@ Normally each folder would have it own read me, but it has been written on the m
 
 
 ## Usages <a name=usage></a>
-A short descripton of each file in each path. 
+Define a plant in the plants folder, an example can be found in the folder.
+The plant file should contain the following information, order does not matter:
+        
+        #id
+        1
+        #port
+        /dev/ttyACM0
+        #moisture threshold
+        60
+        #remote ip
+        10.42.0.222
+
+To launch a specific plant(not from file), run command:
+
+        ./launch_plant_remote.sh $id $port $moisture_threshold $remote_ip
+
+Or to launch all plants, run, this will launch nodes for all plants in the plants folder:
+
+        ./launch_all_plants.sh
+
+To kill all nodes, run:
+
+        ./kill_ros_nodes.sh pids.log
+
+To launch the monitor topic for a specific id, run:
+
+        ./scripts/show_data.sh $id
+
+A short description of each file in each path. 
 
 ### health_monitor
-- cpu_load.sh: Bash script, cpu load
-- cpu_temp.sh: Bash script, cpu temperature
-- disk_space: Bash script, disk space
-- log_to_csv.sh: Bash script that executesd the other bash scripts and save them in a .csv
-- network_traffic.sh: Bash script, network traffic
-- ram_usage.sh: Bash script, ram usage
-- system_info.csv: log file
+- `cpu_load`.sh: Bash script, cpu load
+- `cpu_temp`.sh: Bash script, cpu temperature
+- `disk_space`: Bash script, disk space
+- `log_to_csv`.sh: Bash script that executes the other bash scripts and save them in a .csv
+- `network_traffic`.sh: Bash script, network traffic
+- `ram_usage`.sh: Bash script, ram usage
+- `system_info`.csv: log file
 
 ### html
-- all1.csv: CSV file hard linked to the csv file in log.
-- chart.js: Javascript for showing the graph ofline.
-- Fail2ban.log: Hard link to the log file for fail2ban.
-- graphv2.php: Graph of sensors and alarm with download bottom.
-- index.html: Welcome page.
-- login.php: Safety side with password to see the log for fail2ban.
-- plot2_csv.php: Shows the RPI healt moniting data.
-- plot_pump.php: Shows when the pump was activated in graph form.
-- pump1.csv: CSV file hard linked to the csv file in lag.
-- system_info.csv CSV file hard linked to the health monitoring log
-- uptime.php: Shows the uptime linux command
+- `all1.csv`: CSV file hard linked to the csv file in log.
+- `chart.js`: Javascript for showing the graph ofline.
+- `Fail2ban.log`: Hard link to the log file for fail2ban.
+- `graphv2.php`: Graph of sensors and alarm with download bottom.
+- `index.html`: Welcome page.
+- `login.php`: Safety side with password to see the log for fail2ban.
+- `plot2_csv.php`: Shows the RPI healt moniting data.
+- `plot_pump.php`: Shows when the pump was activated in graph form.
+- `pump1.csv`: CSV file hard linked to the csv file in lag.
+- `system_info.csv` CSV file hard linked to the health monitoring log
+- `uptime.php`: Shows the uptime linux command
 
 ### log
-- all1.csv: CSV file with id for logging timestamp, ambient light, moisture, pump and water alarm for one plant.
-- ambient_light_topic1.csv: Log file.
-- moisture_topic1.csv: Log file.
-- plant_alarm_topic1.csv: Log file.
-- water_alarm_topic1.csv: Log file.
-- pump1.csv: Logfile with timestampt for when the pump is used.
-- time1.csv: Logfile of the timestamp. 
-
-### log_backup
-Same as above.
+- `all1.csv`: CSV file with id for logging timestamp, ambient light, moisture, pump and water alarm for one plant.
+- `ambient_light_topic1.csv`: Log file.
+- `moisture_topic1.csv`: Log file.
+- `plant_alarm_topic1.csv`: Log file.
+- `water_alarm_topic1.csv`: Log file.
+- `pump1.csv`: Logfile with timestampt for when the pump is used.
+- `time1.csv`: Logfile of the timestamp. 
 
 ### plants
-- plant1: Unique IP and id for the only plant active
+- `plant1`: example of a plant file.
 
 ### scripts
-- btn_press.sh: Publisher node for bottom press.
-- check_last_pump.sh: Publisher node for logging when the pump is activate.
-- generate_colected_log.sh: Uses the for message topics for sensors and time, and generates a .csv file
-- kill_ros_nodes.sh: Iterate through the list and unsubscripe or stop pubslishing on each topic
-- log_sensor.sh: Subscriper node that logs the different topics publishing to each own .csv file
-- plant_node.sh: Reads data from UART and publish it on 4 different message topics for the 2 alarms and two sensors with an ID attached for the possibility of multiple plants.
-- pump_controller.sh: Subscriber node, that sends signal to the Pico to water the plant, whenever appropriate to the functional requirements.
-- remote_node.sh: Subscriper node led control on ESP8266
-- show_data.sh: Subscriper node for debugging tool to show the data of the different topics.
+- `btn_press.sh`: Publisher node for bottom press.
+- `check_last_pump.sh`: Publisher node for logging when the pump is activate.
+- `generate_colected_log.sh`: Uses the for message topics for sensors and time, and generates a .csv file
+- `kill_ros_nodes.sh`: Iterate through the list and unsubscripe or stop pubslishing on each topic
+- `log_sensor.sh`: Subscriper node that logs the different topics publishing to each own .csv file
+- `plant_node.sh`: Reads data from UART and publish it on 4 different message topics for the 2 alarms and two sensors with an ID attached for the possibility of multiple plants.
+- `pump_controller.sh`: Subscriber node, that sends signal to the Pico to water the plant, whenever appropriate to the functional requirements.
+- `remote_node.sh`: Subscriper node led control on ESP8266
+- `show_data.sh`: Subscriper node for debugging tool to show the data of the different topics.
 
 ### Setup to run on boot
 Follow below steps to run the project on boot.
@@ -91,7 +116,7 @@ Follow below steps to run the project on boot.
 
     *Add the following lines to the file:*
 
-        [Unit]
+        **[Unit]**
         Description=/etc/rc.local Compatibility
         ConditionPathExists=/etc/rc.local
 
