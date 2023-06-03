@@ -84,21 +84,23 @@ A short description of each file in each path.
 - `plant_alarm_topic1.csv`: Log file.
 - `water_alarm_topic1.csv`: Log file.
 - `pump1.csv`: Logfile with timestampt for when the pump is used.
-- `time1.csv`: Logfile of the timestamp. 
+- `time1.csv`: Logfile of the timestamp, matching the lines in 4 sensor topics. 
 
 ### plants
 - `plant1`: example of a plant file.
 
 ### scripts
-- `btn_press.sh`: Publisher node for bottom press.
-- `check_last_pump.sh`: Publisher node for logging when the pump is activate.
-- `generate_colected_log.sh`: Uses the for message topics for sensors and time, and generates a .csv file
-- `kill_ros_nodes.sh`: Iterate through the list and unsubscripe or stop pubslishing on each topic
-- `log_sensor.sh`: Subscriper node that logs the different topics publishing to each own .csv file
+- `btn_press.sh`: Publisher node for bottom press(*pump_request*).
+- `check_last_pump.sh`: checks if 12 hours have passed since last pump(publishes on *pump_reuest*)
+- `generate_colected_log.sh`: Collect all individually logged data to one file one data-point per minute, deletes the content of the four sensor file when ran.
+- `kill_ros_nodes.sh`: Kills all pids in the passed file
+- `log_sensor.sh`: Subscriber node that logs the different topics to each own .csv file
 - `plant_node.sh`: Reads data from UART and publish it on 4 different message topics for the 2 alarms and two sensors with an ID attached for the possibility of multiple plants.
 - `pump_controller.sh`: Subscriber node, that sends signal to the Pico to water the plant, whenever appropriate to the functional requirements.
-- `remote_node.sh`: Subscriper node led control on ESP8266
-- `show_data.sh`: Subscriper node for debugging tool to show the data of the different topics.
+- `remote_node.sh`: Subscriber node led control on ESP8266
+- `show_data.sh`: Subscriber node for debugging tool to show the data of the different topics.
+
+##
 
 ### Setup to run on boot
 Follow below steps to run the project on boot.
