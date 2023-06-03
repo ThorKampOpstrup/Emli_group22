@@ -100,7 +100,12 @@ A short description of each file in each path.
 - `remote_node.sh`: Subscriber node led control on ESP8266
 - `show_data.sh`: Subscriber node for debugging tool to show the data of the different topics.
 
-##
+### run web server
+    sudo apt-get install apache2 php
+    cd /var/www
+    sudo chown -R www-data:www-data /var/www/html
+    sudo chmod -R g+w html
+    sudo usermod -a -G www-data pi
 
 ### Setup to run on boot
 Follow below steps to run the project on boot.
