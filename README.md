@@ -157,4 +157,4 @@ Follow below steps to run the project on boot.
         ln html/pump1.csv /var/www/html/pump1.csv
 
 ### If the program still does not start;
-Try trouble shooting by starting "./launch_all_plant.sh" and se what information is shown and what is not. Note that it will say Waiting for server, as 2 of the nodes ping the remote, and waits for answers before proceeding. The btn node til print waiting .... as ling as no button press is detected.
+Try trouble shooting by starting "./launch_all_plant.sh" and se what information is shown and what is not. Note that it will say Waiting for server, as 2 of the nodes ping the remote, and waits for answers before proceeding. The btn node til print waiting .... as long as no button press is detected.
