@@ -6,6 +6,9 @@ The project was done by Benjamin Longet, Peter Nielsen and Thor Opstrup.
 1. [Introduction](#introduction)
 2. [Features](#features)
 3. [Usage](#usage)
+4. [Function description](#function-description)
+5. [Run on boot](#run-on-boot)
+6. [Trouble shooting](#trouble-shooting)
 
 ## Introduction <a name="introduction"></a>
 This Git repository was created as a part of the Embedded Linux course at University of Southern Denmark. The purpose of the project was to create an Embedded Plant Watering System, consisting of a Raspberry Pi, Raspberry Pico and an ESP8266. The project definition with Functional- and Nonfunctional requirements can be found in the [Requirements.pdf](emli_2023_project_info_v2-1.pdf).
@@ -54,7 +57,16 @@ To launch the monitor topic for a specific id, run:
 
 A short description of each file in each path. 
 
-### health_monitor
+### run web server
+    sudo apt-get install apache2 php
+    cd /var/www
+    sudo chown -R www-data:www-data /var/www/html
+    sudo chmod -R g+w html
+    sudo usermod -a -G www-data pi
+
+Log in and out for the changes to take effect
+
+### health_monitor<a name="Function description"></a>
 - `cpu_load`.sh: Bash script, cpu load
 - `cpu_temp`.sh: Bash script, cpu temperature
 - `disk_space`: Bash script, disk space
@@ -96,19 +108,10 @@ A short description of each file in each path.
 - `log_sensor.sh`: Subscriber node that logs the different topics to each own .csv file
 - `plant_node.sh`: Reads data from UART and publish it on 4 different message topics for the 2 alarms and two sensors with an ID attached for the possibility of multiple plants.
 - `pump_controller.sh`: Subscriber node, that sends signal to the Pico to water the plant, whenever appropriate to the functional requirements.
-- `remote_node.sh`: Subscriber node led control on ESP8266
+- `remote_node.sh`: Subscriber node led control on Adafruit HUZZAH ESP8266 
 - `show_data.sh`: Subscriber node for debugging tool to show the data of the different topics.
 
-### run web server
-    sudo apt-get install apache2 php
-    cd /var/www
-    sudo chown -R www-data:www-data /var/www/html
-    sudo chmod -R g+w html
-    sudo usermod -a -G www-data pi
-
-Log in and out for the changes to take effect
-
-### Setup to run on boot
+### Setup to run on boot<a name="Run on boot"></a>
 Follow below steps to run the project on boot.
 
 1. Open a terminal and `touch /etc/rc.local`
@@ -141,7 +144,8 @@ Follow below steps to run the project on boot.
 **Addition:**
     *One could just add teh content of boot.sh to the rc.local file, but for ease of acces for the user it is placed in boot.sh*
 
-### If old data is shown or downloaded, it is most likely a missing link, perform following step depending on the missing link:
+### Trouble shooting <a name="Trouble shooting"></a>
+**If old data is shown or downloaded, it is most likely a missing link, perform following step depending on the missing link:**
 **cd to root of this git!**
         
         ln log/all1.csv html/all1.csv 
