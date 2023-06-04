@@ -19,7 +19,6 @@ Normally each folder would have it own read me, but it has been written on the m
 | `health_monitor`  | The folder includes the bash scripts for monitoring the health status of our Raspberry Pi     |
 | `html` | The folder includes the php, html, .log, and .csv files in the project for our webserver.  |
 | `log` | The folder includes different .csv files used for logging|
-| `log_backup`  | The folder includes backup of the data used for logging the visible tests in the report.     |
 | `plants` | The folder used to save informations for multiple plants. Only 1 file right now, as we only have one plant |
 | `scripts`  |  The folder includes the bash scripts for all the message topics.      |
 
@@ -106,6 +105,8 @@ A short description of each file in each path.
     sudo chown -R www-data:www-data /var/www/html
     sudo chmod -R g+w html
     sudo usermod -a -G www-data pi
+
+Log in and out for the changes to take effect
 
 ### Setup to run on boot
 Follow below steps to run the project on boot.
